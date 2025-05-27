@@ -25,15 +25,15 @@ public class FireBaseConfigManager {
     public void initialize() throws IOException {
 
         logger.debug("Iniciou o metodo de firebase");
-        InputStream serviceAccount = getClass()
-                .getClassLoader()
-                .getResourceAsStream("jfood-4c3be-firebase-adminsdk-ltl00-7d35246665.json");
+//        InputStream serviceAccount = getClass()
+        //              .getClassLoader()
+        //      .getResourceAsStream("jfood-4c3be-firebase-adminsdk-ltl00-7d35246665.json");
 
-        logger.debug("Arquivo "+serviceAccount);
+        //logger.debug("Arquivo "+serviceAccount);
 
-        if (serviceAccount == null) {
-            throw new IOException("Arquivo de credenciais Firebase não encontrado no classpath.");
-        }
+        // if (serviceAccount == null) {
+        //   throw new IOException("Arquivo de credenciais Firebase não encontrado no classpath.");
+        //}
 
         logger.debug("Credencial "+GoogleCredentials.getApplicationDefault());
         FirebaseOptions options = FirebaseOptions.builder()
