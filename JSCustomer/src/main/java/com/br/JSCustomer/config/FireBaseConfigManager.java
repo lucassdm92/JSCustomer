@@ -27,8 +27,7 @@ public class FireBaseConfigManager {
         }
 
         FirebaseOptions options = FirebaseOptions.builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                .setDatabaseUrl("https://jfood-4c3be-default-rtdb.firebaseio.com")
+                .setCredentials(GoogleCredentials.getApplicationDefault())
                 .build();
 
         FirebaseApp.initializeApp(options);
