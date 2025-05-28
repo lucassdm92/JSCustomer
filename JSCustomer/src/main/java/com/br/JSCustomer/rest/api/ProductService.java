@@ -1,5 +1,6 @@
 package com.br.JSCustomer.rest.api;
 
+import com.br.JSCustomer.config.FireBaseConfigManager;
 import com.br.JSCustomer.manager.IProductManager;
 import com.br.JSCustomer.model.entity.*;
 import com.google.api.core.ApiFuture;
@@ -21,13 +22,17 @@ import java.util.concurrent.ExecutionException;
 public class ProductService {
 
     @Autowired
+    private FireBaseConfigManager fireBaseConfigManager;
+    @Autowired
     private IProductManager iProductManager;
 
     @GetMapping("/searchProductsByStoreId/{id}")
     public ResponseEntity<List<Product>> searchProductsByStoreId(@PathVariable("id") String id) throws ExecutionException, InterruptedException {
 
-        Firestore db = FirestoreClient.getFirestore();
-        CollectionReference product = db.collection("product_collection");
+
+        CollectionReference product =
+                fireBaseConfigManager
+                        .getFireStoreInstance().collection("product_collection");
         Query query = product.whereEqualTo("storeId", id);
         ApiFuture<QuerySnapshot> querySnapshot = query.get();
 

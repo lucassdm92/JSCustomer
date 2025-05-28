@@ -1,5 +1,6 @@
 package com.br.JSCustomer.manager;
 
+import com.br.JSCustomer.config.FireBaseConfigManager;
 import com.br.JSCustomer.model.entity.GroupItem;
 import com.br.JSCustomer.model.entity.Item;
 import com.br.JSCustomer.model.entity.Product;
@@ -7,12 +8,16 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.Firestore;
 import com.google.firebase.cloud.FirestoreClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
 public class ProductManager implements IProductManager {
+
+    @Autowired
+    private FireBaseConfigManager fireBaseConfigManager;
 
 
     @Override
