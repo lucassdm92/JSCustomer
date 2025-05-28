@@ -26,6 +26,15 @@ public class ProductService {
     @Autowired
     private IProductManager iProductManager;
 
+
+    @GetMapping("/teste")
+    public void teste() throws ExecutionException, InterruptedException {
+
+
+     System.out.println("HAHA");
+    }
+
+
     @GetMapping("/searchProductsByStoreId/{id}")
     public ResponseEntity<List<Product>> searchProductsByStoreId(@PathVariable("id") String id) throws ExecutionException, InterruptedException {
 
