@@ -35,11 +35,11 @@ public class FireBaseConfigManager {
         //   throw new IOException("Arquivo de credenciais Firebase não encontrado no classpath.");
         //}
 
-        logger.debug("Credencial "+GoogleCredentials.getApplicationDefault());
+        logger.debug("Credencial " + GoogleCredentials.getApplicationDefault());
         FirebaseOptions options = FirebaseOptions.builder()
-                .setCredentials(GoogleCredentials.getApplicationDefault())
+                .setCredentials(GoogleCredentials.getApplicationDefault()).setProjectId("jfood-4c3be")
                 .build();
-        logger.debug("Credencial  2"+GoogleCredentials.getApplicationDefault());
+        logger.debug("Credencial  2" + GoogleCredentials.getApplicationDefault());
 
 
         FirebaseApp.initializeApp(options);
